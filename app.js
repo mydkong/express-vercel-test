@@ -10,7 +10,7 @@ app.use(helmet());
 
 app.use('/', (req, res) => {
     let url = req.url
-    if (url.test(/\/$/)) {
+    if (/\/$/.test(url)) {
         url += 'index.html'
     }
     url = url.substring(1)
