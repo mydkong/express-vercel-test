@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 	res.json(filesArray)
 })
 
-app.use('/', (req, res) => {
+/*app.use('/', (req, res) => {
     let url = req.url
 
     if (/\/$/.test(url)) {
@@ -35,6 +35,6 @@ app.use('/', (req, res) => {
     url = url.substring(1)
     //res.sendFile(path.join(__dirname, 'src', url))
     res.json([fs.readFileSync(path.join(process.cwd(), 'src', url))])
-})
+})*/
 
 module.exports = app;
