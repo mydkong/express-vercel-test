@@ -10,7 +10,16 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
 app.use(helmet());
 
 app.get('/', (req, res) => {
-    res.json(path.join(process.cwd(), 'src'))
+	let filesArray = []
+    fs.readdir(dir, (err, files) => {
+		
+	   	// Afficher les fichiers et dossiers contenus dans le répertoire
+	    files.forEach(file => {
+	        filesArray.push(file)
+	    });
+	});
+
+	res.json(filesArray)
 })
 
 app.use('/', (req, res) => {
