@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const { ErrorResponseObject } = require('./common/http');
-import path from 'path'
+const path = require('path')
 
 const app = express();
 
