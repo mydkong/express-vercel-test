@@ -10,7 +10,7 @@
     "test": "jest -i"
   },
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "keywords": [
     "vercel",
