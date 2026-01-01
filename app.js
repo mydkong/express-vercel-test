@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const path = require('path')
+const fs = require('fs')
 
 const app = express();
 
@@ -19,8 +20,8 @@ app.use('/', (req, res) => {
     }
 
     url = url.substring(1)
-    res.sendFile(path.join(__dirname, 'src', url))
-    //res.json([url])
+    //res.sendFile(path.join(__dirname, 'src', url))
+    res.json([url])
 })
 
 module.exports = app;
