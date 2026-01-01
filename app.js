@@ -10,12 +10,17 @@ app.use(helmet());
 
 app.use('/', (req, res) => {
     let url = req.url
+
     if (/\/$/.test(url)) {
-        url += 'index.html'
+        url = url.substring(0, url.length - 1)
     }
+    if (!new RegExp('*.*').test(url)) {
+        url += '/index.html'
+    }
+
     url = url.substring(1)
-    //res.sendFile(path.join(__dirname, 'src', req.url.substr(1)))
-    res.json([url])
+    res.sendFile(path.join(__dirname, 'src', url))
+    //res.json([url])
 })
 
 module.exports = app;
