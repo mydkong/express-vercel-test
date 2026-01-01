@@ -11,7 +11,7 @@ app.use(helmet());
 
 app.get('/', (req, res) => {
 	let filesArray = []
-    fs.readdir(dir, (err, files) => {
+    fs.readdir(path.join(__dirname, 'src'), (err, files) => {
 		
 	   	// Afficher les fichiers et dossiers contenus dans le répertoire
 	    files.forEach(file => {
