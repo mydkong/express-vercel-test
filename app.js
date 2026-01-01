@@ -10,8 +10,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
 app.use(helmet());
 
 app.get('/', (req, res) => {
-    const files = fs.readdirSync(path.join(process.cwd(), 'src'))
-    res.json(files)
+    res.json(path.join(process.cwd(), 'src'))
 })
 
 app.use('/', (req, res) => {
