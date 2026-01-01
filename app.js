@@ -11,6 +11,7 @@ app.use(helmet());
 //app.use(express.static('src'));
 app.get((req, res) => {
     res.sendFile(path.join(__dirname, 'src', req.url.substr(1)))
+    console.log(path.join(__dirname, 'src', req.url.substr(1)))
 })
 
 module.exports = app;
