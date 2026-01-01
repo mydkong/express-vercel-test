@@ -8,11 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
 app.use(helmet());
 
-app.get('/', (req, res) => {
-    res.json({text: 'coucou'})
-})
-
-app.get("\\*", (req, res) => {
+app.use('/', (req, res) => {
     let url = req.url
     if (url.test(/\/$/)) {
         url += 'index.html'
