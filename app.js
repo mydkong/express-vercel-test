@@ -15,13 +15,13 @@ app.use('/', (req, res) => {
     if (/\/$/.test(url)) {
         url = url.substring(0, url.length - 1)
     }
-    if (!/[A-Za-z0-9\-_]*\.[A-Za-z0-9\-_]*/.test(url)) {
+    if (!/[A-Za-z0-9\-_]*\.[A-Za-z0-9\-_]*$/.test(url)) {
         url += '/index.html'
     }
 
     url = url.substring(1)
     //res.sendFile(path.join(__dirname, 'src', url))
-    res.json([url])
+    res.json(path.join(__dirname, 'src', url))
 })
 
 module.exports = app;
