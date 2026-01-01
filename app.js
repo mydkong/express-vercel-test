@@ -14,7 +14,7 @@ app.use('/', (req, res) => {
     if (/\/$/.test(url)) {
         url = url.substring(0, url.length - 1)
     }
-    if (!new RegExp('*.*').test(url)) {
+    if (!/[A-Za-z0-9\-_]*\.[A-Za-z0-9\-_]*/.test(url)) {
         url += '/index.html'
     }
 
