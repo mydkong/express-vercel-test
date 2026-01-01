@@ -16,7 +16,7 @@ app.get((req, res) => {
     }
     url = url.substring(1)
     //res.sendFile(path.join(__dirname, 'src', req.url.substr(1)))
-    res.json(url)
+    res.json([url])
 })
 
 module.exports = app;
