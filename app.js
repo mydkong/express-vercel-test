@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
 app.use(helmet());
 
 app.get((req, res) => {
-    let url = res.url
+    let url = req.url
     if (url.test(/\/$/)) {
         url += 'index.html'
     }
