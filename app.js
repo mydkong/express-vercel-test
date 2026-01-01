@@ -10,8 +10,8 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(helmet());
 //app.use(express.static('src'));
 app.get((req, res) => {
-    res.sendFile(path.join(__dirname, 'src', req.url.substr(1)))
-    console.log(path.join(__dirname, 'src', req.url.substr(1)))
+    //res.sendFile(path.join(__dirname, 'src', req.url.substr(1)))
+    res.json(path.join(__dirname, 'src', req.url.substr(1)))
 })
 
 module.exports = app;
