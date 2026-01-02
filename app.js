@@ -24,7 +24,7 @@ app.use('/', (req, res) => {
 
     fs.readFile(path.join(__dirname, url), 'utf-8', (err, data) => {
         if (err) {
-            res.status(500).send('')
+            res.status(500).sendFile(path.join(__dirname, path.join('errors', '500.html')))
         }
     })
 })
