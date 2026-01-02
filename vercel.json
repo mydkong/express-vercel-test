@@ -1,8 +1,11 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/src/(.*)", "dest": "/src/$1" },
-    { "src": "/errors/(.*)", "dest": "/errors/$1" },
     { "src": "/(.*)", "dest": "app.js" }
-  ]
+  ],
+  "static": {
+    "src": "src",
+    "dest": "src",
+    "errors": "errors"
+  }
 }
