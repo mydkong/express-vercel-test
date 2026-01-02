@@ -9,20 +9,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
 app.use(helmet());
 
-app.get('/', (req, res) => {
-	let filesArray = []
-    fs.readdir(path.join(__dirname, 'src'), (err, files) => {
-		
-	   	// Afficher les fichiers et dossiers contenus dans le répertoire
-	    files.forEach(file => {
-	        filesArray.push(file)
-	    });
-	});
-
-	res.json(filesArray)
-})
-
-/*app.use('/', (req, res) => {
+app.use('/', (req, res) => {
     let url = req.url
 
     if (/\/$/.test(url)) {
@@ -33,8 +20,7 @@ app.get('/', (req, res) => {
     }
 
     url = url.substring(1)
-    //res.sendFile(path.join(__dirname, 'src', url))
-    res.json([fs.readFileSync(path.join(process.cwd(), 'src', url))])
-})*/
+    res.sendFile(path.join(__dirname, 'src', url))
+})
 
 module.exports = app;
