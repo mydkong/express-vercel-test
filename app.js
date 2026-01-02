@@ -7,6 +7,7 @@ const app = express();
 
 /*app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
+
 app.use(helmet());
 
 app.use('/', (req, res) => {
@@ -20,7 +21,12 @@ app.use('/', (req, res) => {
     }
 
     url = url.substring(1)
-    res.sendFile(path.join(__dirname, 'src', url))
+
+    fs.readFile(path.join(__dirname, url), 'utf-8', (err, data) => {
+        if (err) {
+            res.status(500).send('')
+        }
+    })
 })
 
 module.exports = app;
