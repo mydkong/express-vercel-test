@@ -1,4 +1,8 @@
 {
   "version": 2,
-  "routes": [{ "src": "(.*)", "dest": "app.js" }]
+  "routes": [
+    { "src": "/src/(.*)", "dest": "/src/$1" },
+    { "src": "/errors/(.*)", "dest": "/errors/$1" },
+    { "src": "/(.*)", "dest": "app.js" }
+  ]
 }
