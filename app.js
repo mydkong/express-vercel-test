@@ -13,9 +13,8 @@ app.use(helmet({
         directives: {
             defaultSrc: ["'self'"],
             imgSrc: ["'self'", "https://express-vercel-test-plum.vercel.app"],
-            styleSrc: ["'self'", "'unsafe-inline'"], // Permet les styles inline
-            scriptSrc: ["'self'", "'unsafe-inline'"], // Permet les scripts inline si nécessaire
-            // Ajoutez d'autres directives si nécessaire
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
         },
     },
 }));
