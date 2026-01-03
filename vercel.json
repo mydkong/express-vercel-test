@@ -2,10 +2,5 @@
   "version": 2,
   "routes": [
     { "src": "/(.*)", "dest": "app.js" }
-  ],
-  "static": {
-    "src": "src",
-    "dest": "src",
-    "errors": "errors"
-  }
+  ]
 }

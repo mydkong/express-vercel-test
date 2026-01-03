@@ -22,10 +22,13 @@ app.use('/', (req, res) => {
 
     url = url.substring(1)
 
-    fs.readFile(path.join(__dirname, url), 'utf-8', (err, data) => {
-        if (err) {
-            res.status(500).sendFile(path.join(__dirname, path.join('errors', '500.html')))
+    fs.readFile(path.join(__dirname, path.join('public/src', url)), 'utf-8', (err, data) => {
+        if (err) {
+            res.status(500).sendFile(path.join(__dirname, 'public/errors/500.html'))
+            return false;
         }
+
+        res.status(200).send(data)
     })
 })
 
