@@ -8,7 +8,17 @@ const app = express();
 /*app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
 
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            imgSrc: ["'self'", "https://express-vercel-test-plum.vercel.app"],
+            styleSrc: ["'self'", "'unsafe-inline'"], // Permet les styles inline
+            scriptSrc: ["'self'", "'unsafe-inline'"], // Permet les scripts inline si nécessaire
+            // Ajoutez d'autres directives si nécessaire
+        },
+    },
+}));
 
 app.use('/', (req, res) => {
     let url = req.url
