@@ -1,23 +1,8 @@
 const express = require('express');
-const helmet = require('helmet');
 const path = require('path')
 const fs = require('fs')
 
 const app = express();
-
-/*app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));*/
-
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            defaultSrc: ["'self'"],
-            imgSrc: ["'self'", "https://express-vercel-test-plum.vercel.app"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            scriptSrc: ["'self'", "'unsafe-inline'"],
-        },
-    },
-}));
 
 app.use('/', (req, res) => {
     let url = req.url
